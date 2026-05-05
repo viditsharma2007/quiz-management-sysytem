@@ -88,3 +88,60 @@ public:
         }
     }
 };
+// -------- RAPID FIRE --------
+class RapidFire : public Quiz
+{
+public:
+    void conductRound(Team teams[], int n)
+    {
+        int ans;
+
+        for(int i = 0; i < n; i++)
+        {
+            cout << "\nRapid Fire: " << teams[i].name << endl;
+
+            for(int j = 1; j <= 3; j++)
+            {
+                cout << "Capital of India?\n";
+                cout << "1.Delhi 2.Mumbai 3.Kolkata 4.Chennai\n";
+
+                ans = getValidInteger();
+
+                if(ans == 1)
+                    teams[i].addScore(5);
+                else
+                    teams[i].addScore(-2);
+            }
+        }
+    }
+};
+
+// -------- BUZZER --------
+class Buzzer : public Quiz
+{
+public:
+    void conductRound(Team teams[], int n)
+    {
+        int teamChoice, ans;
+
+        for(int i = 0; i < 2; i++)
+        {
+            cout << "Team (1-" << n << "): ";
+            teamChoice = getValidInteger();
+
+            if(teamChoice < 1 || teamChoice > n)
+            {
+                cout << "Invalid team\n";
+                continue;
+            }
+
+            cout << "5*5?\n1.20 2.25 3.30 4.35\n";
+            ans = getValidInteger();
+
+            if(ans == 2)
+                teams[teamChoice-1].addScore(20);
+            else
+                teams[teamChoice-1].addScore(-10);
+        }
+    }
+};
