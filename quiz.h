@@ -231,3 +231,22 @@ void showStatistics(Team teams[], int n)
     cout << "\n--- STATISTICS ---\n";
     cout << "Average Score: " << avg << endl;
 }
+
+// -------- SEARCH TEAM --------
+void searchTeam(Team teams[], int n)
+{
+    string key;
+    cout << "Enter team name: ";
+    cin >> key;
+
+    for(int i = 0; i < n; i++)
+    {
+        if(teams[i].name == key)
+        {
+            teams[i].display();
+            return;
+        }
+    }
+
+    cout << "Team not found!\n";
+}
