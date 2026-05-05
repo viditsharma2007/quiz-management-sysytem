@@ -146,26 +146,27 @@ public:
     }
 };
 
-// --------BONUS ROUND --------
-class BonusRound:public Quiz
+// -------- BONUS ROUND --------
+class BonusRound : public Quiz
 {
 public:
- void conductRound(Team teams[],int n)
-{
-    int ans;
-for(int i=0;i<ni++)
-{
- cout<<"\nBonus Round:"<<teams[i].name<<endl;
+    void conductRound(Team teams[], int n)
+    {
+        int ans;
 
-  cout<<"10+5=?\n1.12 2.15 3.20 4.25\n";
-    ans =getValidInteger();
+        for(int i = 0; i < n; i++)
+        {
+            cout << "\nBonus Round: " << teams[i].name << endl;
 
-if(ans==2)
-    teams[i].score=ScoreManager<int>::add(teams[i].score,15);
-   else
-    teams[i].score=ScoreManager<int>::subtract(teams[i].score,5);
-}
-}
+            cout << "10 + 5 = ?\n1.12 2.15 3.20 4.25\n";
+            ans = getValidInteger();
+
+            if(ans == 2)
+                teams[i].score = ScoreManager<int>::add(teams[i].score, 15);
+            else
+                teams[i].score = ScoreManager<int>::subtract(teams[i].score, 5);
+        }
+    }
 };
 
         // --------LIGHTING ROUND --------
