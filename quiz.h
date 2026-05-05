@@ -146,50 +146,48 @@ public:
     }
 };
 
-// -------- BONUS ROUND --------
-class BonusRound : public Quiz
+// --------BONUS ROUND --------
+class BonusRound:public Quiz
 {
 public:
-    void conductRound(Team teams[], int n)
-    {
-        int ans;
+ void conductRound(Team teams[],int n)
+{
+    int ans;
+for(int i=0;i<ni++)
+{
+ cout<<"\nBonus Round:"<<teams[i].name<<endl;
 
-        for(int i = 0; i < n; i++)
-        {
-            cout << "\nBonus Round: " << teams[i].name << endl;
+  cout<<"10+5=?\n1.12 2.15 3.20 4.25\n";
+    ans =getValidInteger();
 
-            cout << "10 + 5 = ?\n1.12 2.15 3.20 4.25\n";
-            ans = getValidInteger();
-
-            if(ans == 2)
-                teams[i].score = ScoreManager<int>::add(teams[i].score, 15);
-            else
-                teams[i].score = ScoreManager<int>::subtract(teams[i].score, 5);
-        }
-    }
+if(ans==2)
+    teams[i].score=ScoreManager<int>::add(teams[i].score,15);
+   else
+    teams[i].score=ScoreManager<int>::subtract(teams[i].score,5);
+}
+}
 };
 
-// -------- LIGHTNING ROUND --------
+        // --------LIGHTING ROUND --------
 class LightningRound : public Quiz
 {
-public:
-    void conductRound(Team teams[], int n)
+    public:
+    void conductRound(Team teams[],int n)
     {
-        int ans;
+    int ans;
 
-        for(int i = 0; i < n; i++)
-        {
-            cout << "\nLightning Round: " << teams[i].name << endl;
+for(int i=0;i<n;i++)
+    {
+    cout<<"\nLightning Round:"<<teams[i].na,e<<endl;
 
-            cout << "1+1?\n1.1 2.2 3.3 4.4\n";
-            ans = getValidInteger();
-
-            if(ans == 2)
-                teams[i].addScore(5);
-            else
-                teams[i].addScore(-2);
-        }
-    }
+   cout<<"1+1?\n1.1 2.2 3.3 4.4\n";
+ans=getValidInteger();
+if(ans==2)
+    teams[i].addScore(5);
+   else
+    teams[i].addScore(-20);
+}
+}
 };
 
 // -------- FUNCTIONS --------
