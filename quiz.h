@@ -250,3 +250,43 @@ void searchTeam(Team teams[], int n)
 
     cout << "Team not found!\n";
 }
+
+// -------- FILE HANDLING --------
+void saveData(Team teams[], int n)
+{
+    ofstream file("scores.txt");
+    for(int i = 0; i < n; i++)
+        file << teams[i].name << " " << teams[i].score << endl;
+}
+
+void loadData()
+{
+    ifstream file("scores.txt");
+    string name;
+    int score;
+
+    while(file >> name >> score)
+        cout << name << " : " << score << endl;
+}
+
+// -------- EXTRA --------
+void resetScores(Team teams[], int n)
+{
+    for(int i = 0; i < n; i++)
+        teams[i].score = 0;
+}
+
+void editTeam(Team teams[], int n)
+{
+    int t;
+    cout << "Enter team number: ";
+    t = getValidInteger();
+
+    if(t >= 1 && t <= n)
+    {
+        string name;
+        cout << "New name: ";
+        cin >> name;
+        teams[t-1].setName(name);
+    }
+}
