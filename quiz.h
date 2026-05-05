@@ -169,26 +169,27 @@ public:
     }
 };
 
-        // --------LIGHTING ROUND --------
+// -------- LIGHTNING ROUND --------
 class LightningRound : public Quiz
 {
-    public:
-    void conductRound(Team teams[],int n)
+public:
+    void conductRound(Team teams[], int n)
     {
-    int ans;
+        int ans;
 
-for(int i=0;i<n;i++)
-    {
-    cout<<"\nLightning Round:"<<teams[i].na,e<<endl;
+        for(int i = 0; i < n; i++)
+        {
+            cout << "\nLightning Round: " << teams[i].name << endl;
 
-   cout<<"1+1?\n1.1 2.2 3.3 4.4\n";
-ans=getValidInteger();
-if(ans==2)
-    teams[i].addScore(5);
-   else
-    teams[i].addScore(-20);
-}
-}
+            cout << "1+1?\n1.1 2.2 3.3 4.4\n";
+            ans = getValidInteger();
+
+            if(ans == 2)
+                teams[i].addScore(5);
+            else
+                teams[i].addScore(-2);
+        }
+    }
 };
 
 // -------- FUNCTIONS --------
@@ -211,4 +212,22 @@ void showRanking(Team teams[], int n)
         cout << i+1 << ". ";
         teams[i].display();
     }
+}
+
+// -------- STATISTICS --------
+void showStatistics(Team teams[], int n)
+{
+    int scores[10];
+
+    for(int i = 0; i < n; i++)
+        scores[i] = teams[i].score;
+
+    int total = 0;
+    for(int i = 0; i < n; i++)
+        total += scores[i];
+
+    float avg = (float)total / n;
+
+    cout << "\n--- STATISTICS ---\n";
+    cout << "Average Score: " << avg << endl;
 }
