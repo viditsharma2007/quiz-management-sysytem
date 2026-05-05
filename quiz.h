@@ -290,3 +290,25 @@ void editTeam(Team teams[], int n)
         teams[t-1].setName(name);
     }
 }
+// -------- DETAILED REPORT --------
+void showDetailedReport(Team teams[], int n)
+{
+    cout << "\n--- DETAILED REPORT ---\n";
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << "Team: " << teams[i].name << endl;
+        cout << "Score: " << teams[i].score << endl;
+
+        if(teams[i].score > 50)
+            cout << "Performance: Excellent\n";
+        else if(teams[i].score > 20)
+            cout << "Performance: Good\n";
+        else
+            cout << "Performance: Needs Improvement\n";
+
+        cout << "----------------------\n";
+    }
+}
+
+#endif
