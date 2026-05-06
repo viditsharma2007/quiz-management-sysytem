@@ -20,7 +20,7 @@ public:
     }
 };
 
-// -------- GENERIC FUNCTIONS --------
+// -------- GENERIC FUNCTIONS -------
 template <typename T>
 T findMax(T arr[], int n)
 {
